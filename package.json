@@ -1,6 +1,6 @@
 {
   "name": "edoosync",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Sync Data from Edoobox to 3rd Party",
   "productName": "edoosync",
   "author": "Gkiokan Sali <me@gkiokan.net>",
