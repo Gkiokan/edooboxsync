@@ -1,0 +1,45 @@
+$offsetForTitleBar: -3px;
+
+html, body {
+    /* Foreground, Background */
+    scrollbar-color: #999 #333;
+
+    ::-webkit-scrollbar {
+        width: 10px; /* Mostly for vertical scrollbars */
+        height: 5px; /* Mostly for horizontal scrollbars */
+    }
+
+    ::-webkit-scrollbar-thumb { /* Foreground */
+        background: #2a2a2a;
+    }
+    ::-webkit-scrollbar-track { /* Background */
+        background: #1a1a1a;
+    }
+
+}
+
+.q-panel-parent.panel-wrapper {
+    position: absolute;
+    top: 0px; left: 0px; right: 0px; bottom: 0px;
+    border: 0px solid red;
+}
+
+.titleBar {
+    cursor: pointer;
+    margin-left: $offsetForTitleBar;
+    margin-right: $offsetForTitleBar;
+    margin-top: $offsetForTitleBar;
+}
+
+.draggable {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.q-field--outlined.q-field--readonly .q-field__control:before {
+    border-style: solid !important;
+}
