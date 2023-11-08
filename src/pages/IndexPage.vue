@@ -1,6 +1,8 @@
 <template>
 <q-page padding class="flex flex-center">
     Hellow World
+
+    <pre>{{ $store.state }}</pre>
     
 </q-page>
 </template>

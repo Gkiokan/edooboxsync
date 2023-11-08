@@ -34,9 +34,11 @@ const Store = createStore({
 
   mutations: {
       initialiseStore(state) {
-        if(localStorage.getItem('store')) {
+        // console.log("store::initialiseStore", state)
+
+        if(localStorage.getItem('store-edooboxsync')) {
           let initialState  = JSON.parse(JSON.stringify(state))
-          let restoredStore = JSON.parse(localStorage.getItem('store'))
+          let restoredStore = JSON.parse(localStorage.getItem('store-edooboxsync'))
           let finalStore = { ...initialState, ...restoredStore }
 
           // console.log(initialState)

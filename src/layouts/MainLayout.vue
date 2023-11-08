@@ -12,9 +12,11 @@
             <q-space />
 
             <q-tabs v-model="$root.tab" shrink stretch>
-                <q-tab name="config" label="Config" />
-                <q-tab name="files" label="Files" />
-                <q-tab name="logs" label="Logs" />
+                <q-route-tab no-caps label="Home" :to="{ name: 'home' }" />
+                <q-route-tab no-caps label="Edoobox" :to="{ name: 'edoobox' }" />
+
+                <q-route-tab no-caps label="Einstellung" :to="{ name: 'config' }" />
+                <q-route-tab name="logs" label="Logs" />
             </q-tabs>
 
             <q-btn round class="q-ml-md cursor-pointer" size="sm" icon="power_settings_new" v-if="showCloseButtonNextToTabs" />
@@ -64,20 +66,14 @@ export default defineComponent({
   }},
 
   computed: {
-      server: get('server', false),
-      getCDNAdress(){
-          if(this.server.port != 80)
-            return 'http://' + this.server.ip + ':' + this.server.port
-
-          return 'http://' + this.server.ip
-      }
+    
   },
 
   methods: {
         closeApplication(){
             this.$q.dialog({
                 title: "Quit application?",
-                message: "This will stop the Server and Close the Application",
+                message: "This will Close the Application",
                 dark: true,
                 cancel: {
                     flat: true,

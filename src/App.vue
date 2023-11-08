@@ -12,6 +12,7 @@ export default defineComponent({
         version: process.env.version,
         drawerLeft: false,
         tab: 'config',
+        logs: [],
     }},
 
     computed: {
@@ -37,7 +38,7 @@ export default defineComponent({
         },
 
         addEventListener(){
-            console.log("Register app events")
+            console.log("app::Register app events")
             window.ipc.on('error', (_, msg) => this.showError(msg))
             window.ipc.on('log', (_, log) => this.addLogs(log))
             window.ipc.on('notify', (_, msg) => this.notify(msg))
@@ -46,6 +47,7 @@ export default defineComponent({
             // window.ipc.on('server-state', this.updateServerState)
             // window.ipc.on('server-files', this.updateServerFiles)
             this.$store.subscribe(this.storeSubscriber)
+            console.log("app::register done")
         },
 
         updateServerState(_, state){
@@ -55,7 +57,7 @@ export default defineComponent({
         updateServerFiles(_, files){
             this.files = files
         },
-        
+
         loading(o){
             // console.log(o)
             if(o.hide)
@@ -66,8 +68,8 @@ export default defineComponent({
         },
 
         storeSubscriber(mutation, state){
-            // console.log(mutation)
-            localStorage.setItem('store', JSON.stringify(state));
+            // console.log("store::subscriber", mutation, state)
+            localStorage.setItem('store-edooboxsync', JSON.stringify(state));
         },
 
         showError(message){
